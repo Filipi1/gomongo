@@ -1,24 +1,24 @@
 from abc import ABC, abstractmethod
-from .entity_port import Entity
+from typing import Dict, Any, List
 
 
-class Repository[T: Entity](ABC):
+class Repository(ABC):
     @abstractmethod
-    def find_one(self) -> T:
+    def find_one(self) -> Dict[str, Any]:
         raise NotImplementedError
 
     @abstractmethod
-    def find(self) -> T:
+    def find(self) -> List[Dict[str, Any]]:
         raise NotImplementedError
 
     @abstractmethod
-    def update(self) -> T:
+    def update(self) -> Dict[str, Any]:
         raise NotImplementedError
 
     @abstractmethod
-    def insert(self) -> T:
+    def insert(self) -> Dict[str, Any]:
         raise NotImplementedError
 
     @abstractmethod
-    def delete(self) -> T:
+    def delete(self):
         raise NotImplementedError
